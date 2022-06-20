@@ -23,7 +23,7 @@ const findproduct = (order, allProducts) => {
 const findemployee = (order, allEmployees) => {
     let orderEmployee = ""
 
-    for (const employee in allEmployees) {
+    for (const employee of allEmployees) {
         if (employee.id === order.employeeId) {
             orderEmployee = employee.name
         }
@@ -40,7 +40,7 @@ export const Orders = () => {
         const employee = findemployee(order, employees)
         const product = findproduct(order, products)
 
-        html += `<li>${product.name} was sold by ${employee.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
+        html += `<li>${product.name} was sold by ${employee} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
     }
 
     html += "</ul>"
